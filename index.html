@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TODO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>TODO</h1>
+      <p class="summary" id="summary" aria-live="polite"></p>
+    </header>
+
+    <form class="new-todo" id="new-todo-form" autocomplete="off">
+      <label class="visually-hidden" for="new-todo-input">新しいタスク</label>
+      <input id="new-todo-input" type="text" placeholder="やることを入力して Enter" maxlength="200" required>
+      <button type="submit">追加</button>
+    </form>
+
+    <div class="toolbar" id="toolbar">
+      <label class="toggle-all">
+        <input type="checkbox" id="toggle-all">
+        <span>すべて完了</span>
+      </label>
+      <div class="filters" role="group" aria-label="表示フィルター">
+        <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+        <button type="button" data-filter="active" aria-pressed="false">未完了</button>
+        <button type="button" data-filter="done" aria-pressed="false">完了</button>
+      </div>
+    </div>
+
+    <ul class="todo-list" id="todo-list"></ul>
+    <p class="empty" id="empty"></p>
+
+    <footer class="app-footer" id="footer">
+      <span id="remaining"></span>
+      <button type="button" class="link-button" id="clear-done">完了済みを削除</button>
+    </footer>
+
+    <p class="hint">ダブルクリックでタスクを編集 / Esc で編集をキャンセル</p>
+  </main>
+
+  <template id="todo-item-template">
+    <li class="todo-item">
+      <input type="checkbox" class="todo-check">
+      <span class="todo-text"></span>
+      <button type="button" class="todo-delete" aria-label="削除">×</button>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
